@@ -1,4 +1,0 @@
-[submodule "django-notes-app"]
-	    path = django-notes-app
-	url = https://github.com/arpitkhameshra/docker-projects.git
-
