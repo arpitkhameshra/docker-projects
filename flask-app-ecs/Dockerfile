@@ -1,9 +1,15 @@
-FROM python:3.7
+#Stage 1
+
+FROM python:3.7 AS big-stage
 
 WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt
+#Stage 2
+FROM python:3.9-slim-bullseye
 
-ENTRYPOINT ["python","run.py"]
+COPY --from=big-stage /app /app
+
+
+ENTRYPOINT ["python","app.py"]
