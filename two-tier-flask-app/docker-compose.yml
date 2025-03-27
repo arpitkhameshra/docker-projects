@@ -1,8 +1,8 @@
-version: '3'
+version: '3.8'
 services:
   backend:
-    build:
-      context: .
+    image: arpitk12345/two-tier-flask-app-backend
+    container_name: two-tier-backend
     ports:
       - 5000:5000
     environment:
@@ -16,6 +16,7 @@ services:
 
   mysql:
     image: mysql:5.7
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: test@123
       MYSQL_USER: devops
