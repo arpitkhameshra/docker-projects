@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  backend:
+    image: arpitk12345/two-tier-flask-app-backend
+    container_name: two-tier-backend
+    ports:
+      - 5000:5000
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: devops
+      MYSQL_PASSWORD: devops
+      MYSQL_DB: two_tier
+    restart: always
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: test@123
+      MYSQL_USER: devops
+      MYSQL_PASSWORD: devops
+      MYSQL_DATABASE: two_tier
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-udevops", "-pdevops"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  mysql-data:
