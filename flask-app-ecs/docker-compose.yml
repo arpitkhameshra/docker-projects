@@ -1,7 +1,18 @@
-version: '3.3'
+version: '3.8'
 services:
   backend:
     build:
       context: .
     ports:
       - "80:80"
+    volumes:
+      - myvolume:/app
+    networks:
+      - mynetwork
+    container_name: flask-app
+
+volumes:
+  myvolume:
+
+networks:
+  mynetwork:
