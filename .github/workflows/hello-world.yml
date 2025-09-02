@@ -10,14 +10,14 @@ on:
   workflow_dispatch:
   
 jobs:
-  Welcome
+  Welcome:
   runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Welcome to GitHub Action
         run: echo "Welcome to GitHub Action"
         shell: bash 
-  GoodBye
+  GoodBye:
   runs-on: ubuntu-latest
     steps:
     - name: Goodbye
