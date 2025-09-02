@@ -11,14 +11,14 @@ on:
   
 jobs:
   Welcome
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Welcome to GitHub Action
         run: echo "Welcome to GitHub Action"
         shell: bash 
   GoodBye
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
     steps:
     - name: Goodbye
       run: echo "Goodbye to GitHub Action"
